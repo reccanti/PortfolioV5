@@ -25,7 +25,10 @@ end
 desc 'generate a JSON file from a Spreadsheet'
 task :getSheetCopy do
   sheet = Spreadsheet::Spreadsheet.getValues(ENV['SHEET_ID'], "Swipe Rogue", "A1:B")
-  swipeRogueJSON = { :copy => sheet[1][1] }
+  swipeRogueJSON = {
+    :title => "Swipe Rogue",
+    :copy => sheet[1][1] 
+  }
   File.open("_data/projects/swipeRogue.json", "w") do |f|
     f.write(JSON.pretty_generate(swipeRogueJSON))
     puts JSON.pretty_generate(swipeRogueJSON)

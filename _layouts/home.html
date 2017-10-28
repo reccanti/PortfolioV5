@@ -1,0 +1,15 @@
+---
+---
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+      {% for project_hash in site.data.projects %}
+      {% assign project = project_hash[1] %}
+        <h2>{{ project.title }}</h2>
+        {{ project.copy | markdownify }}
+      {% endfor %}
+    </body>
+</html>
+
