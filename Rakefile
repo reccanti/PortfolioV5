@@ -18,6 +18,6 @@ end
 
 desc 'get info from a google sheet'
 task :getSheetInfo do
-  sheet = getSpreadsheetValues(ENV['SHEET_ID'], "Swipe Rogue", "A1:B")
+  sheet = Spreadsheet::Spreadsheet.getValues(ENV['SHEET_ID'], "Swipe Rogue", "A1:B")
   puts sheet
 end
