@@ -1,15 +1,26 @@
 ---
 ---
+
+{% assign projects_order = "swipeRogue,inspire,learnVCS,theVirtualHeart" | split: "," %}
+{% assign projects = "" | split: "," %}
+{% assign jobs_order = "fitbit,globalThinking,RIT,cathedralCorporation" | split: "," %}
+{% assign jobs = "" | split: "," %}
+
 <!DOCTYPE html>
 <html>
     <head>
     </head>
     <body>
-      {% for project_hash in site.data.projects %}
-      {% assign project = project_hash[1] %}
-        <h2>{{ project.title }}</h2>
-        {{ project.copy | markdownify }}
+      <h2>Projects</h2>
+      {% for project_name in projects_order %}
+      {% assign project_hash = site.data.portfolio[project_name] %}
+        <h3>{{ project_hash.meta.name }}</h3>
       {% endfor %}
-    </body>
+
+      <h2>Career</h2>
+      {% for job_name in jobs_order %}
+      {% assign project_hash = site.data.portfolio[job_name] %}
+        <h3>{{ project_hash.meta.name }}</h3>
+      {% endfor %}
 </html>
 
