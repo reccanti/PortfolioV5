@@ -11,9 +11,11 @@
     <head>
     </head>
     <body>
+
       <h2>Projects</h2>
       {% for project_name in projects_order %}
       {% assign project_hash = site.data.portfolio[project_name] %}
+      {{ site.portfolio | where: "portfolio_item",project_name | where: "title","Base" }}
         <h3>{{ project_hash.meta.name }}</h3>
       {% endfor %}
 
